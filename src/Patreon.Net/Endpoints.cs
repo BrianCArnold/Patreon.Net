@@ -21,7 +21,7 @@
         {
             private const string Url = "/api/oauth2/v2/campaigns";
             private const Includes SupportedIncludesCampaigns = Includes.Tiers | Includes.Creator | Includes.Benefits | Includes.Goals;
-            private const Includes SupportedIncludesCampaignMembers = Includes.Address | Includes.Campaign | Includes.CurrentlyEntitledTiers | Includes.User;
+            private const Includes SupportedIncludesCampaignMembers = Includes.Address | Includes.Campaign | Includes.CurrentlyEntitledTiers | Includes.User | Includes.PledgeHistory;
 
             public static string GetCampaigns(Includes includes) => 
                 Url + "?" + UrlHelper.Generate(typeof(Models.Campaign), includes & SupportedIncludesCampaigns);
@@ -35,7 +35,7 @@
         internal static class Members
         {
             private const string Url = "/api/oauth2/v2/members/";
-            private const Includes SupportedIncludes = Includes.Address | Includes.Campaign | Includes.CurrentlyEntitledTiers | Includes.User;
+            private const Includes SupportedIncludes = Includes.Address | Includes.Campaign | Includes.CurrentlyEntitledTiers | Includes.User | Includes.PledgeHistory;
 
             public static string GetMember(string memberId, Includes includes) => Url + memberId + "?" + UrlHelper.Generate(typeof(Models.Member), includes & SupportedIncludes);
         }

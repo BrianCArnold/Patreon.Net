@@ -21,6 +21,7 @@ namespace Patreon.Net
         [Include("currently_entitled_tiers", typeof(Models.Tier))] CurrentlyEntitledTiers = 1 << 6,
         [Include("user", typeof(Models.User))] User = 1 << 7,
         [Include("memberships", typeof(Models.Member))] Memberships = 1 << 8,
+        [Include("pledge_history", typeof(Models.PledgeEvent))] PledgeHistory = 1 << 9,
         /// <summary>
         /// Include all supported information on the resource being fetched.
         /// </summary>

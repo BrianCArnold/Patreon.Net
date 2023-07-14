@@ -133,7 +133,8 @@ namespace Patreon.Net
             {
                 return await GetAsync<T>(requestUri, true).ConfigureAwait(false);
             }
-            return null;
+            string ct = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            throw new PatreonApiException($"{requestUri} returned an error response: \n{ct}");
         }
 
         private async Task<bool> ShouldAttemptRetryOrThrowAsync(HttpResponseMessage response)

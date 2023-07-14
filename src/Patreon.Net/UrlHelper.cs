@@ -22,7 +22,9 @@ namespace Patreon.Net
                 var include = individualIncludes[i];
                 var includeNameAttrib = include.GetCustomAttribute<IncludeAttribute>();
                 if (includeNameAttrib != null)
+                {
                     includeMap.Add((Includes)include.GetRawConstantValue(), includeNameAttrib);
+                }
             }
 
             // Generate cache of resource field strings
@@ -34,7 +36,8 @@ namespace Patreon.Net
                 { typeof(Models.Goal), GenerateFields(typeof(Models.Goal)) },
                 { typeof(Models.Member), GenerateFields(typeof(Models.Member)) },
                 { typeof(Models.Tier), GenerateFields(typeof(Models.Tier)) },
-                { typeof(Models.User), GenerateFields(typeof(Models.User)) }
+                { typeof(Models.User), GenerateFields(typeof(Models.User)) },
+                { typeof(Models.PledgeEvent), GenerateFields(typeof(Models.PledgeEvent)) }
             };
         }
 
